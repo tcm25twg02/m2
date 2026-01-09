@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Início | TCM25twg02</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+
+    <header>
+        <h1>A História da Fotografia</h1>
+        <p>O Nascimento de uma Nova Era</p>
+    </header>
+
+    <main>
+        <nav class="topnav" id="myTopnav">
+            <a href="index.html">Início</a>
+            <a href="historia.html" class="active">História</a>
+            <a href="evolucao.html">Evolução</a>
+            <a href="atualidade.html">Atualidade</a>
+            <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </nav>
+
+        <article>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/View_from_the_Window_at_Le_Gras%2C_Joseph_Nic%C3%A9phore_Ni%C3%A9pce.jpg" alt="Primeira Fotografia" class="img-historia">
+            
+            <div id="conteudo-xml">
+                <p>A carregar história...</p>
+            </div>
+
+            <h2 style="margin-top: 40px;">CRONOLOGIA FUNDAMENTAL</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Acontecimento</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1826</strong></td>
+                        <td>Niépce cria a primeira fotografia permanente da história.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>1839</strong></td>
+                        <td>Apresentação oficial do Daguerreótipo em França.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>1841</strong></td>
+                        <td>Talbot patenteia o Calótipo (sistema de negativos).</td>
+                    </tr>
+                    <tr>
+                        <td><strong>1888</strong></td>
+                        <td>George Eastman lança a primeira câmara Kodak.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </article>
+    </main>
+
+    <footer>
+        <p>Grupo TCM25twg02: André Pinto, João Nunes, João Monteiro</p>
+        <p>&copy; 2025 - Tecnologias Web - Universidade da Maia</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Script para carregar os dados do XML especificamente para esta página
+        fetch('historia.xml')
+            .then(response => response.text())
+            .then(data => {
+                const parser = new DOMParser();
+                const xmlDoc = parser.parseFromString(data, "text/xml");
+                const titulo = xmlDoc.getElementsByTagName("titulo")[0].textContent;
+                const texto = xmlDoc.getElementsByTagName("texto")[0].textContent;
+
+                document.getElementById("conteudo-xml").innerHTML = `
+                    <h1>${titulo}</h1>
+                    <p>${texto}</p>
+                `;
+            })
+            .catch(err => console.error("Erro ao carregar XML:", err));
+    </script>
+</body>
+</html>

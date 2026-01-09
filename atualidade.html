@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atualidade | TCM25twg02</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        /* Estilos para o Formulário */
+        .form-container {
+            max-width: 600px;
+            margin: 30px auto;
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-group input, 
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 1em;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .btn-enviar {
+            background-color: #000;
+            color: #fff;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            text-transform: uppercase;
+            width: 100%;
+            transition: background 0.3s;
+        }
+
+        .btn-enviar:hover {
+            background-color: #333;
+        }
+
+        .atualidade-intro {
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        .img-atualidade {
+            width: 100%;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>A História da Fotografia</h1>
+        <p>A Fotografia na Era Digital e IA</p>
+    </header>
+
+    <main>
+        <section>
+            <nav class="topnav" id="myTopnav">
+                <a href="index.html">Início</a>
+                <a href="historia.html">História</a>
+                <a href="evolucao.html">Evolução</a>
+                <a href="atualidade.html" class="active">Opinião</a>
+                <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </nav>
+
+            <article>
+                <h1>A FOTOGRAFIA HOJE</h1>
+                <div class="atualidade-intro">
+                    <p>Hoje em dia, a fotografia está em todo o lado. Com o surgimento dos smartphones e das redes sociais como o Instagram, passámos de meros observadores a criadores constantes de conteúdo. A Inteligência Artificial agora ajuda-nos a editar, melhorar e até gerar imagens do zero.</p>
+                </div>
+
+              
+                <div class="form-container">
+                    <h2 style="text-align: center; margin-top: 0;">Dê-nos a sua Opinião</h2>
+                    <p style="text-align: center; font-size: 0.9em; color: #666; margin-bottom: 25px;">
+                        Partilhe o que pensa sobre o estado atual da fotografia.
+                    </p>
+                    
+                    <form id="feedbackForm" onsubmit="return validarFormulario(event)">
+                        <div class="form-group">
+                            <label for="nome">Nome Completo</label>
+                            <input type="text" id="nome" name="nome" placeholder="O seu nome..." required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="idade">Idade</label>
+                            <input type="number" id="idade" name="idade" min="1" max="120" placeholder="A sua idade..." required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" placeholder="O seu e-mail principal..." required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="opiniao">A sua opinião sobre a fotografia atual</label>
+                            <textarea id="opiniao" name="opiniao" placeholder="Escreva aqui a sua reflexão..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-enviar">Submeter Opinião</button>
+                    </form>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <p>Grupo TCM25twg02: André Pinto, João Nunes, João Monteiro</p>
+        <p>&copy; 2025 - Tecnologias Web - Universidade da Maia</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        function validarFormulario(event) {
+            event.preventDefault(); // Impede o envio real para podermos testar
+            
+            const nome = document.getElementById('nome').value;
+            alert('Obrigado pelo teu contributo, ' + nome + '! A tua opinião foi registada com sucesso.');
+            
+            document.getElementById('feedbackForm').reset();
+            return false;
+        }
+
+        function toggleMenu() {
+            var x = document.getElementById("myTopnav");
+            if (x.className === "topnav") {
+                x.className += " responsive";
+            } else {
+                x.className = "topnav";
+            }
+        }
+    </script>
+</body>
+
+</html>

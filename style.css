@@ -1,0 +1,227 @@
+/* ESTRUTURA E BOX MODEL */
+* {
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background-color: #ffffff;
+  color: #1a1a1a;
+  text-align: center;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 30px;
+  background: #fff;
+}
+th,
+td {
+  padding: 15px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+th {
+  background: #000;
+  color: #fff;
+  text-transform: uppercase;
+}
+tr:nth-child(even) {
+  background: #f9f9f9;
+}
+.img-historia {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+/* HEADER E NAVBAR */
+header {
+  background: #000;
+  color: #fff;
+  padding: 40px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.topnav {
+  background: #1a1a1a;
+  overflow: hidden;
+  position: sticky;
+  top: 0;
+  z-index: 1001;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 16px 20px;
+  text-decoration: none;
+}
+.topnav a:hover {
+  background: #444;
+  color: #fff;
+}
+.topnav a.active {
+  background: #000;
+  border-bottom: 3px solid #fff;
+}
+.topnav .icon {
+  display: none;
+}
+
+head p {
+  text-align: center;
+}
+
+/* RESPONSIVIDADE (HAMBURGER) */
+@media screen and (max-width: 600px) {
+  .topnav a:not(:first-child) {
+    display: none;
+  }
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+  .topnav.responsive {
+    position: relative;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+    border-top: 1px solid #333;
+  }
+  .slideshow-container {
+    height: 300px;
+  }
+  .mySlides {
+    height: 300px;
+  }
+}
+
+/* CONTEÚDO E FOOTER */
+main {
+  flex: 1;
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+  animation: fadeIn 0.8s ease-in;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+footer {
+  background: #000;
+  color: #888;
+  text-align: center;
+  padding: 30px;
+  font-size: 14px;
+}
+footer p {
+  text-align: center;
+}
+
+/* SLIDESHOW STYLES */
+.slideshow-container {
+  max-width: 100%;
+  position: relative;
+  margin: auto;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.mySlides {
+  display: none; /* Escondido por padrão */
+  height: 400px;
+}
+
+.mySlides img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.text {
+  color: #f2f2f2;
+  font-size: 18px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.img-historia {width: 100%;
+height: 500px;}
+
+/* Efeito de Fade */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* EVOLUÇÃO */
+.evolucao-lista {
+  text-align: left;
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 0;
+  list-style: none;
+}
+.evolucao-lista li {
+  background: #fdfdfd;
+  margin-bottom: 15px;
+  padding: 20px;
+  border-left: 5px solid #000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  font-size: 1.1em;
+}
+.evolucao-lista li strong {
+  color: #000;
+  display: block;
+  margin-bottom: 5px;
+  font-size: 1.2em;
+}
+/* Adiciona um efeito de numeração automática e cor de destaque */
+.item-acordeao {
+  counter-increment: section;
+  border-left: 5px solid #000;
+}
+
+.item-acordeao:nth-child(odd) .botao-expandir {
+  background: #fdfdfd;
+}
+
+.item-acordeao:nth-child(even) .botao-expandir {
+  background: #f4f4f4;
+}

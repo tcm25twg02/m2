@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<conteudo>
+    <seccao>
+        <titulo>A JORNADA DA IMAGEM: DO ROLO AO PIXEL</titulo>
+        <lista_evolucao>
+            <item>
+                <sumario>1888 - A Democratização de George Eastman</sumario>
+                <detalhe>A criação da Kodak n.º 1 mudou tudo. Antes, a fotografia era um processo químico perigoso e pesado. Com o filme em rolo de papel, a fotografia saiu dos estúdios profissionais e entrou nas casas das famílias comuns, permitindo o registo do quotidiano e das memórias pessoais pela primeira vez.</detalhe>
+            </item>
+            <item>
+                <sumario>1925 - O Nascimento do Fotojornalismo (Leica)</sumario>
+                <detalhe>O engenheiro Oskar Barnack criou a Leica I, que utilizava filme de cinema de 35mm. Pela primeira vez, uma câmara cabia no bolso de um casaco. Isto permitiu que fotógrafos fossem para cenários de guerra e eventos sociais capturando o "momento decisivo" sem serem notados, revolucionando a imprensa mundial.</detalhe>
+            </item>
+            <item>
+                <sumario>1948 - A Magia da Polaroid</sumario>
+                <detalhe>Edwin Land inventou a fotografia instantânea após a sua filha perguntar por que não podia ver a foto logo após o clique. A Polaroid tornou-se um ícone cultural, permitindo a visualização da imagem em segundos, o que foi o precursor analógico do que hoje sentimos com o ecrã do smartphone.</detalhe>
+            </item>
+            <item>
+                <sumario>1975 - A Primeira Câmara Digital (Kodak)</sumario>
+                <detalhe>Steven Sasson inventou um dispositivo que gravava imagens em cassetes magnéticas. Tinha apenas 0.01 megapixels e levava quase meio minuto a processar. Embora a Kodak não tenha acreditado no potencial comercial na época, este foi o marco zero de toda a tecnologia que usamos hoje.</detalhe>
+            </item>
+            <item>
+                <sumario>2000 - A Fusão com as Telecomunicações</sumario>
+                <detalhe>O telemóvel Sharp J-SH04 foi o primeiro a integrar uma câmara. Embora as fotos fossem de baixa qualidade, esta união mudou a sociedade: a fotografia deixou de ser apenas um registo para se tornar uma forma de comunicação instantânea e visual entre pessoas em qualquer lugar do mundo.</detalhe>
+            </item>
+            <item>
+                <sumario>Hoje - Fotografia Computacional e IA</sumario>
+                <detalhe>Atualmente, as câmaras não dependem apenas de lentes, mas de algoritmos. A Inteligência Artificial corrige cores, simula desfoque de fundo (modo retrato) e até combina múltiplas exposições em milissegundos. Hoje, carregamos no bolso sensores mais potentes que as câmaras profissionais de há uma década.</detalhe>
+            </item>
+        </lista_evolucao>
+    </seccao>
+</conteudo>

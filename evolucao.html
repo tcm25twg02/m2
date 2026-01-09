@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evolução | TCM25twg02</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        /* Estilos para o Acordeão (Lista Interativa) */
+        .evolucao-container {
+            max-width: 800px;
+            margin: 20px auto;
+            text-align: left;
+        }
+
+        .item-acordeao {
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            background: #fff;
+        }
+
+        .botao-expandir {
+            width: 100%;
+            padding: 20px;
+            background: #f8f8f8;
+            border: none;
+            text-align: left;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s;
+        }
+
+        .botao-expandir:hover {
+            background: #eee;
+        }
+
+        .painel-detalhe {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+            background: #fff;
+        }
+
+        .painel-detalhe .texto-interno {
+            padding: 20px;
+            border-top: 1px solid #eee;
+            color: #444;
+            line-height: 1.6;
+            font-size: 0.95em;
+        }
+
+        .fa-chevron-down {
+            transition: transform 0.3s;
+        }
+
+        .ativo .fa-chevron-down {
+            transform: rotate(180deg);
+        }
+
+        .img-header-evolucao {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>A História da Fotografia</h1>
+        <p>A Evolução Técnica e Digital</p>
+    </header>
+
+    <main>
+        <section>
+            <nav class="topnav" id="myTopnav">
+                <a href="index.html">Início</a>
+                <a href="historia.html">História</a>
+                <a href="evolucao.html" class="active">Evolução</a>
+                <a href="atualidade.html">Opinião</a>
+                <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </nav>
+
+            <article>
+                <h1 id="xml-titulo">LINHA DO TEMPO</h1>
+                
+                <img src="images/image4.jpg" alt="Evolução das Câmaras" class="img-header-evolucao">
+
+                <div id="lista-alvo" class="evolucao-container">
+                    <p style="text-align: center;">A carregar cronologia...</p>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <p>Grupo TCM25twg02: André Pinto, João Nunes, João Monteiro</p>
+        <p>&copy; 2025 - Tecnologias Web - Universidade da Maia</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Função para carregar e processar o XML
+        fetch('evolucao.xml')
+            .then(response => response.text())
+            .then(data => {
+                const parser = new DOMParser();
+                const xmlDoc = parser.parseFromString(data, "text/xml");
+                
+                // Título da página vindo do XML
+                const tituloXml = xmlDoc.getElementsByTagName("titulo")[0].textContent;
+                document.getElementById("xml-titulo").textContent = tituloXml;
+
+                // Construção da lista de acordeão
+                const itens = xmlDoc.getElementsByTagName("item");
+                const listaAlvo = document.getElementById("lista-alvo");
+                let htmlGerado = "";
+
+                for (let i = 0; i < itens.length; i++) {
+                    const sumario = itens[i].getElementsByTagName("sumario")[0].textContent;
+                    const detalhe = itens[i].getElementsByTagName("detalhe")[0].textContent;
+
+                    htmlGerado += `
+                        <div class="item-acordeao">
+                            <button class="botao-expandir" onclick="toggleAcordeao(this)">
+                                ${sumario}
+                                <i class="fa fa-chevron-down"></i>
+                            </button>
+                            <div class="painel-detalhe">
+                                <div class="texto-interno">${detalhe}</div>
+                            </div>
+                        </div>
+                    `;
+                }
+                listaAlvo.innerHTML = htmlGerado;
+            })
+            .catch(error => {
+                console.error("Erro ao carregar o XML:", error);
+                document.getElementById("lista-alvo").innerHTML = "<p>Erro ao carregar os dados da evolução.</p>";
+            });
+
+        // Função para abrir/fechar o acordeão
+        function toggleAcordeao(elemento) {
+            // Alterna a classe 'ativo' para rodar a seta
+            elemento.classList.toggle("ativo");
+            
+            const painel = elemento.nextElementSibling;
+            
+            if (painel.style.maxHeight) {
+                painel.style.maxHeight = null;
+            } else {
+                // Define a altura máxima baseada no conteúdo real (scrollHeight)
+                painel.style.maxHeight = painel.scrollHeight + "px";
+            }
+        }
+
+        // Função para o menu hambúrguer (garantindo que existe aqui também)
+        function toggleMenu() {
+            var x = document.getElementById("myTopnav");
+            if (x.className === "topnav") {
+                x.className += " responsive";
+            } else {
+                x.className = "topnav";
+            }
+        }
+    </script>
+</body>
+
+</html>
