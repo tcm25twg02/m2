@@ -45,7 +45,7 @@ window.addEventListener('load', function() {
     const tabela = document.getElementById("corpo-tabela");
     if (!tabela) return;
 
-    fetch('data/dados.xml')
+    fetch('historia.xml')
         .then(response => response.text())
         .then(data => {
             let parser = new DOMParser();
